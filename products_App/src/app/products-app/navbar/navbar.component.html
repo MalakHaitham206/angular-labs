@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg fixed-top border-bottom custom-navbar">
+  <div class="container-fluid">
+    <!-- Brand Name -->
+    <a class="navbar-brand">Products App</a>
+
+    <!-- Toggle Button (for mobile screens) -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navigation Links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/"
+            routerLinkActive="active_link"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            Products List
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login" routerLinkActive="active_link"
+            >Login</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link cart-icon"
+            routerLink="/cart"
+            routerLinkActive="active_link"
+          >
+            <div class="cart-container">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="badge">{{ cartCount }}</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

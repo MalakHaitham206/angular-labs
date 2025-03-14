@@ -1,0 +1,63 @@
+<main class="container p-5">
+  <h1 class="mb-5">Users</h1>
+  <div class="mb-3 d-flex gap-2">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search by email..."
+      [(ngModel)]="searchQuery"
+      (input)="filterUsers()"
+    />
+    <button
+      *ngIf="searchQuery"
+      class="btn btn-secondary"
+      (click)="resetSearch()"
+    >
+      Reset
+    </button>
+  </div>
+  <hr />
+  <div class="row g-3 mt-3 d-flex justify-content-center">
+    @for (user of filteredUsers;; track user.id){
+    <div
+      class="col-3 mx-2 text-center rounded border-1"
+      style="
+        background-color: #eeeeee;
+
+        border: 1px solid #76a5ae !important;
+        border-radius: 40px !important;
+      "
+    >
+      <img
+        class="rounded-circle mt-4 mb-2 border border-1 text-bg-light"
+        [src]="user.image"
+        alt="user.username"
+        style="border: 1px solid #76a5ae !important"
+      />
+      <div class="mb-4">
+        <span
+          class="badge mb-3"
+          [ngClass]="
+            user.role == 'admin'
+              ? 'text-bg-danger'
+              : user.role == 'moderator'
+              ? 'text-bg-warning'
+              : user.role == 'user'
+              ? 'text-bg-success'
+              : ''
+          "
+          >{{ user.role }}</span
+        >
+        <br />
+        <span>{{ user.username }}</span>
+        <br />
+        <span style="font-size: 0.9em">{{ user.email }}</span>
+        <br />
+        <span>{{ user.phone }}</span>
+        <br />
+        <span>{{ user.birthDate }}</span>
+      </div>
+    </div>
+    }
+  </div>
+</main>

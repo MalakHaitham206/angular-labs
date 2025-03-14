@@ -1,0 +1,12 @@
+.btn{
+    width: 40% !important;
+    border-radius: 2px;
+
+}
+.footer{
+    font-family: 'sibra', serif !important;
+}
+p {
+    max-width: 100%;
+    word-wrap: break-word;
+}

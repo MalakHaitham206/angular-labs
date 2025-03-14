@@ -1,0 +1,30 @@
+.hero-header {
+  position: relative;
+  background-image: url("../../assets/images/download.jpg");
+  background-size: cover;
+  background-position: right;
+  background-repeat: no-repeat;
+  height: 600px;
+  width: 100%;
+}
+
+.hero-content {
+  position: absolute;
+  top: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+.hero-subtitle {
+  margin-top: 25px;
+  margin-bottom: 50px;
+}
+.btn{
+  border-radius: 4px !important;
+  width: 50%;
+
+}

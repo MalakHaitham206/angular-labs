@@ -1,0 +1,83 @@
+/* Container styling */
+.container-sm {
+  max-width: 500px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Form title styling */
+.display-4 {
+  font-size: 2rem;
+  color: #ffc319;
+  margin-bottom: 1.5rem;
+}
+
+/* Form input styling */
+.form-control {
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Label styling */
+.form-label {
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+/* Error message styling */
+.form-text.text-danger {
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Submit button styling */
+.btn-primary {
+  background-color: #ffc319 !important;
+  border: none;
+  border-radius: 10px !important;
+  padding: 0.75rem;
+  font-size: 1rem;
+  color: black;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  width: 30%;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-primary:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+/* Login link styling */
+.text-center a {
+  color: #000000;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.text-center a:hover {
+  color: #ffc319 !important;
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .w-45 {
+    width: 100% !important;
+  }
+
+  .display-4 {
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,28 @@
+<div class="card">
+  <img
+    [src]="newProduct().thumbnail"
+    alt="{{ newProduct().title }}"
+    class="product-image"
+  />
+  <h3>{{ newProduct().title }}</h3>
+  <p class="description">{{ newProduct().description }}</p>
+  <h4 class="price">${{ newProduct().price }}</h4>
+
+  <div class="rating">
+    <span *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+      <i
+        class="fa"
+        [ngClass]="i < newProduct().rating ? 'fa-star' : 'fa-star-o'"
+      ></i>
+    </span>
+  </div>
+
+  <button
+    [disabled]="newProduct().stock === 0"
+    class="buy-btn"
+    [ngClass]="{ added: isProductInCart() }"
+    (click)="handleAddToCart($event)"
+  >
+    {{ isProductInCart() ? "Added to Cart" : "Add to Cart" }}
+  </button>
+</div>

@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'Sibra';
+    src: url('./assets/fonts/Sibre-Regular.otf') format('otf'),
+         url('./assets/fonts/Sibre-Regular.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+  body{
+    font-family: 'Sibra', serif !important;
+  }

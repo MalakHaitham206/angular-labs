@@ -1,0 +1,68 @@
+/* Navbar Custom Styling */
+.custom-navbar {
+  background: #fff;
+  padding: 12px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Brand Styling */
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffc319;
+}
+
+/* Nav Links */
+.navbar-nav .nav-link {
+  font-size: 1rem;
+  padding: 10px 15px;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active_link {
+  color: #ffc319;
+  font-weight: bold;
+}
+
+/* Cart Icon */
+.cart-icon i {
+  font-size: 1.2rem;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.cart-icon:hover i {
+  color: #ffc319;
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  .navbar-nav {
+    text-align: center;
+  }
+  .navbar-nav .nav-item {
+    width: 100%;
+  }
+  .cart-icon {
+    margin-top: 10px;
+  }
+}
+.cart-container {
+  position: relative;
+  display: inline-block;
+}
+
+.badge {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: #d4d4d4;
+  color: black;
+  font-size: 9px;
+  padding: 3px 6px;
+  border-radius: 50%;
+  min-width: 16px;
+  text-align: center;
+}

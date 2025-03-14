@@ -1,0 +1,88 @@
+<div class="container">
+  <h1 class="title">Cart</h1>
+  <div class="cart">
+    <div *ngIf="cart.length > 0; else emptyCart">
+      <!-- Table Header -->
+      <div class="cart-header">
+        <div
+          class="column description"
+          style="display: flex; justify-content: center"
+        >
+          Description
+        </div>
+        <div class="column quantity">Quantity</div>
+        <div class="column remove">Remove</div>
+        <div class="column price" style="font-weight: normal; font-size: small">
+          Price
+        </div>
+      </div>
+
+      <!-- Cart Items -->
+      <div class="cart-item" *ngFor="let item of cart">
+        <!-- Description Column -->
+        <div class="column description">
+          <img
+            [src]="item.product.thumbnail"
+            [alt]="item.product.title"
+            class="item-image"
+          />
+          <div class="item-details">
+            <h2 class="item-title">{{ item.product.title }}</h2>
+            <p class="item-code">Product Code: {{ item.product.id }}</p>
+          </div>
+        </div>
+
+        <!-- Quantity Column -->
+        <div class="column quantity">
+          <button
+            class="quantity-btn plus"
+            (click)="updateQuantity(item.product.id, 1)"
+          >
+            +
+          </button>
+          <span class="quantity-value">{{ item.quantity }}</span>
+          <button
+            class="quantity-btn minus"
+            (click)="updateQuantity(item.product.id, -1)"
+            [disabled]="item.quantity === 1"
+          >
+            -
+          </button>
+        </div>
+
+        <!-- Remove Column -->
+        <div class="column remove">
+          <button class="remove-btn" (click)="removeItem(item.product.id)">
+            <span
+              style="
+                border: 1px solid #d8d8d8;
+                padding: 7px 15px;
+                border-radius: 5px;
+              "
+              >×</span
+            >
+          </button>
+        </div>
+
+        <!-- Price Column -->
+        <div class="column price">
+          £{{ item.product.price * item.quantity }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Empty Cart Message -->
+    <ng-template #emptyCart>
+      <p class="empty-message">Your cart is empty.</p>
+    </ng-template>
+  </div>
+
+  <!-- Total Price -->
+  <div class="total">
+    <span
+      style="border: 1px solid #d8d8d8; padding: 10px 30px; border-radius: 2px"
+    >
+      Total: £{{ getTotalPrice() }}
+    </span>
+  </div>
+</div>

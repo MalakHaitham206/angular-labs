@@ -1,0 +1,114 @@
+<div class="container my-5 d-flex justify-content-center" *ngIf="product">
+  <div class="row">
+    <div class="col-md-5 p-3">
+      <img
+        [src]="product.thumbnail"
+        class="img-thumbnail bg-light"
+        width="500px"
+        alt="thumbnail"
+      />
+      <div class="d-flex mt-3" style="height: 100px">
+        @for(image of product.images; track $index){
+        <img
+          [src]="image"
+          class="img-thumbnail me-2 bg-light"
+          width="100px"
+          alt="Color 1"
+        />
+        }
+      </div>
+    </div>
+
+    <div class="col-md-7 p-3">
+      <h2>{{ product.title }}</h2>
+      <p class="text-muted">{{ product.description }}</p>
+
+      <p class="text-dark">
+        <span>Rate: {{ product.rating }}/10</span>
+      </p>
+
+      <hr />
+
+      <h3>
+        {{
+          product.price | discountPrice : product.discountPercentage | currency
+        }}
+        -
+        <small class="text-danger">
+          Discount {{ product.discountPercentage }}%</small
+        >
+      </h3>
+      <p>{{ product.shippingInformation }}</p>
+      <p>{{ product.warrantyInformation }}</p>
+      <hr />
+      <span
+        class="badge rounded-pill"
+        [ngClass]="
+          product.stock == 0
+            ? 'text-bg-danger'
+            : product.stock > 0
+            ? 'text-bg-success'
+            : ''
+        "
+        >{{
+          product.stock == 0
+            ? "out of stock"
+            : product.stock > 0
+            ? "In stock"
+            : ""
+        }}</span
+      >
+      <p class="mt-4 text-dark fw-bold">More information:</p>
+      <p>Return policy: {{ product.returnPolicy }}.</p>
+      <span *ngIf="product.category" class="badge text-bg-dark me-2">
+        {{ product.category }}
+      </span>
+      <span *ngIf="product.brand" class="badge text-bg-dark">
+        {{ product.brand }}
+      </span>
+
+      <hr />
+
+      <div class="my-4 d-flex align-items-center">
+        <button
+          class="btn btn-outline-secondary me-2"
+          [disabled]="product.stock == 0"
+        >
+          -
+        </button>
+        <input
+          type="text"
+          class="form-control text-center"
+          [value]="product.stock > 0 ? 1 : 0"
+          style="width: 50px"
+        />
+        <button
+          class="btn btn-outline-secondary ms-2"
+          [disabled]="product.stock == 0"
+        >
+          +
+        </button>
+        <span class="text-danger ms-3">
+          @if(product.stock > 0){ Only
+          <strong>{{ product.stock }} items</strong> left! Don't miss it. }
+          @else{
+          <strong>Out of stock!</strong>
+          }
+        </span>
+      </div>
+
+      <button
+        class="btn btn-primary rounded-pill me-2"
+        [disabled]="product.stock == 0"
+      >
+        Buy Now
+      </button>
+      <button
+        class="btn btn-outline-primary rounded-pill"
+        [disabled]="product.stock == 0"
+      >
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</div>
